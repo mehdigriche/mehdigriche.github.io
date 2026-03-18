@@ -1,0 +1,32 @@
+Privacy Policy for Salaati
+Last updated: March 18, 2026
+Overview
+Salaati ("the app") is a macOS menu bar application that displays Islamic prayer times. This policy explains what data the app accesses and how it is used.
+Data We Do Not Collect
+Salaati does not collect, store, transmit, or share any personal data. There is no account system, no analytics, no tracking, and no advertising.
+Network Requests
+The app makes the following outbound requests to third-party services:
+
+api.aladhan.com — fetches daily prayer times based on the coordinates you provide. Your coordinates are sent as URL parameters. The Islamic Network operates this free public API.
+cdn.aladhan.com — streams athan audio files on demand. No identifying information is sent.
+geocoding-api.open-meteo.com — used when you search for a city by name. Only the city name you type is sent as a query parameter.
+ipapi.co — optionally used when you tap "Use My Location" to determine your approximate city and coordinates from your IP address. This is a one-time request triggered only by user action. No data is stored by the app after the location is set.
+
+All requests are made over HTTPS. Salaati does not log, store, or forward any data returned by these services.
+Location
+The app does not request GPS or CoreLocation permissions. Location is determined either by city search or by a voluntary IP-based lookup. The resulting coordinates are stored locally on your device in UserDefaults and are never transmitted to any server operated by the developer.
+Local Storage
+All app settings (prayer time preferences, athan selections, language, etc.) are stored locally on your device using macOS UserDefaults. This data never leaves your device.
+Third-Party Services
+The third-party APIs listed above have their own privacy policies:
+
+Islamic Network (AlAdhan): https://aladhan.com
+Open-Meteo: https://open-meteo.com/en/terms
+ipapi.co: https://ipapi.co/privacy
+
+Children
+Salaati does not knowingly collect any data from anyone, including children.
+Changes
+If this policy changes, the updated version will be posted at this URL with a new date.
+Contact
+For any questions: mehdigriche@icloud.com (or whatever email you prefer)
