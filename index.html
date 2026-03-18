@@ -1,32 +1,169 @@
-Privacy Policy for Salaati
-Last updated: March 18, 2026
-Overview
-Salaati ("the app") is a macOS menu bar application that displays Islamic prayer times. This policy explains what data the app accesses and how it is used.
-Data We Do Not Collect
-Salaati does not collect, store, transmit, or share any personal data. There is no account system, no analytics, no tracking, and no advertising.
-Network Requests
-The app makes the following outbound requests to third-party services:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy - Salaati</title>
 
-api.aladhan.com — fetches daily prayer times based on the coordinates you provide. Your coordinates are sent as URL parameters. The Islamic Network operates this free public API.
-cdn.aladhan.com — streams athan audio files on demand. No identifying information is sent.
-geocoding-api.open-meteo.com — used when you search for a city by name. Only the city name you type is sent as a query parameter.
-ipapi.co — optionally used when you tap "Use My Location" to determine your approximate city and coordinates from your IP address. This is a one-time request triggered only by user action. No data is stored by the app after the location is set.
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background-color: #0f172a;
+        color: #e5e7eb;
+        margin: 0;
+        padding: 0;
+        line-height: 1.7;
+    }
 
-All requests are made over HTTPS. Salaati does not log, store, or forward any data returned by these services.
-Location
-The app does not request GPS or CoreLocation permissions. Location is determined either by city search or by a voluntary IP-based lookup. The resulting coordinates are stored locally on your device in UserDefaults and are never transmitted to any server operated by the developer.
-Local Storage
-All app settings (prayer time preferences, athan selections, language, etc.) are stored locally on your device using macOS UserDefaults. This data never leaves your device.
-Third-Party Services
-The third-party APIs listed above have their own privacy policies:
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
 
-Islamic Network (AlAdhan): https://aladhan.com
-Open-Meteo: https://open-meteo.com/en/terms
-ipapi.co: https://ipapi.co/privacy
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+    }
 
-Children
-Salaati does not knowingly collect any data from anyone, including children.
-Changes
-If this policy changes, the updated version will be posted at this URL with a new date.
-Contact
-For any questions: mehdigriche@icloud.com (or whatever email you prefer)
+    .date {
+        color: #9ca3af;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        margin-top: 30px;
+        font-size: 1.4rem;
+        border-left: 4px solid #e94560;
+        padding-left: 10px;
+    }
+
+    p {
+        margin: 12px 0;
+    }
+
+    ul {
+        margin: 10px 0 20px 20px;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    a {
+        color: #38bdf8;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .card {
+        background: #1e293b;
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 15px;
+    }
+
+    .footer {
+        margin-top: 40px;
+        font-size: 0.9rem;
+        color: #9ca3af;
+    }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+    <h1>Privacy Policy for Salaati</h1>
+    <div class="date">Last updated: March 18, 2026</div>
+
+    <h2>Overview</h2>
+    <p>
+        Salaati ("the app") is a macOS menu bar application that displays Islamic prayer times.
+        This policy explains what data the app accesses and how it is used.
+    </p>
+
+    <h2>Data We Do Not Collect</h2>
+    <div class="card">
+        <p>
+            Salaati does not collect, store, transmit, or share any personal data.
+            There is no account system, no analytics, no tracking, and no advertising.
+        </p>
+    </div>
+
+    <h2>Network Requests</h2>
+    <p>The app makes the following outbound requests to third-party services:</p>
+
+    <ul>
+        <li>
+            <strong>api.aladhan.com</strong> — Fetches daily prayer times based on your coordinates.
+            Coordinates are sent as URL parameters. Operated by Islamic Network.
+        </li>
+        <li>
+            <strong>cdn.aladhan.com</strong> — Streams athan audio files on demand.
+            No identifying information is sent.
+        </li>
+        <li>
+            <strong>geocoding-api.open-meteo.com</strong> — Used when searching for a city.
+            Only the city name you type is sent.
+        </li>
+        <li>
+            <strong>ipapi.co</strong> — Used only when you tap "Use My Location".
+            Determines approximate city and coordinates via IP. One-time request only.
+        </li>
+    </ul>
+
+    <p>
+        All requests are made over HTTPS. Salaati does not log, store, or forward any data returned by these services.
+    </p>
+
+    <h2>Location</h2>
+    <p>
+        The app does not request GPS or CoreLocation permissions. Location is determined
+        either by city search or by a voluntary IP-based lookup.
+    </p>
+    <p>
+        The resulting coordinates are stored locally on your device using UserDefaults and are never transmitted
+        to any server operated by the developer.
+    </p>
+
+    <h2>Local Storage</h2>
+    <p>
+        All app settings (prayer time preferences, athan selections, language, etc.)
+        are stored locally on your device using macOS UserDefaults.
+        This data never leaves your device.
+    </p>
+
+    <h2>Third-Party Services</h2>
+    <ul>
+        <li><a href="https://aladhan.com" target="_blank">Islamic Network (AlAdhan)</a></li>
+        <li><a href="https://open-meteo.com/en/terms" target="_blank">Open-Meteo</a></li>
+        <li><a href="https://ipapi.co/privacy" target="_blank">ipapi.co</a></li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>
+        Salaati does not knowingly collect any data from anyone, including children.
+    </p>
+
+    <h2>Changes</h2>
+    <p>
+        If this policy changes, the updated version will be posted at this URL with a new date.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+        For any questions:
+        <a href="mailto:mehdigriche@icloud.com">mehdigriche@icloud.com</a>
+    </p>
+
+    <div class="footer">
+        © 2026 Salaati. All rights reserved.
+    </div>
+
+</div>
+</body>
+</html>
