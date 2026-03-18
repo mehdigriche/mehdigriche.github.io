@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Salaati</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0f0f1a;
+      --surface:   #1a1a2e;
+      --card:      #1f1f35;
+      --border:    rgba(255,255,255,0.07);
+      --red:       #e94560;
+      --red-dim:   rgba(233,69,96,0.12);
+      --text:      #e8e6f0;
+      --muted:     rgba(232,230,240,0.5);
+      --faint:     rgba(232,230,240,0.25);
+      --green:     #4ade80;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── hero ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 24px 48px;
+      text-align: center;
+    }
+
+    .icon {
+      width: 72px; height: 72px;
+      border-radius: 18px;
+      background: var(--red-dim);
+      border: 1.5px solid rgba(233,69,96,0.35);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .icon svg { width: 36px; height: 36px; fill: var(--red); }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #fff;
+    }
+    header .subtitle {
+      margin-top: 6px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    /* ── layout ── */
+    main {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── contact card ── */
+    .contact-card {
+      background: var(--red-dim);
+      border: 1.5px solid rgba(233,69,96,0.3);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .contact-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: rgba(233,69,96,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 22px;
+    }
+    .contact-card h2 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .contact-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+    .contact-card a {
+      color: var(--red);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* ── sections ── */
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    section h2 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--red);
+      margin-bottom: 20px;
+    }
+
+    /* ── faq ── */
+    .faq { display: flex; flex-direction: column; gap: 16px; }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 14px 18px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #fff;
+      background: rgba(255,255,255,0.03);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .faq-q:hover { background: rgba(255,255,255,0.05); }
+    .faq-q .arrow {
+      color: var(--red);
+      font-size: 18px;
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 0 18px 16px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── steps ── */
+    .steps { display: flex; flex-direction: column; gap: 14px; }
+    .step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--red-dim);
+      border: 1px solid rgba(233,69,96,0.3);
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step-text { font-size: 14px; color: var(--muted); padding-top: 3px; }
+    .step-text strong { color: #fff; }
+
+    /* ── links ── */
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    code {
+      background: rgba(255,255,255,0.07);
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    /* ── footer ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--faint);
+      font-size: 13px;
+    }
+    footer a { color: var(--faint); }
+    footer a:hover { color: var(--red); }
+    footer .links { display: flex; gap: 20px; justify-content: center; margin-top: 8px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="icon">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+    </svg>
+  </div>
+  <h1>Salaati — Support</h1>
+  <p class="subtitle">Prayer Times for macOS · We're here to help</p>
+</header>
+
+<main>
+
+  <!-- contact -->
+  <div class="contact-card">
+    <div class="contact-icon">✉️</div>
+    <div>
+      <h2>Get in touch</h2>
+      <p>Have a bug, question, or feature request? Email us at<br>
+      <a href="mailto:contact@mehdigriche.com">contact@mehdigriche.com</a> — we reply within 48 hours.</p>
+    </div>
+  </div>
+
+  <!-- getting started -->
+  <section>
+    <h2>Getting Started</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Launch Salaati. A <strong>crescent moon icon</strong> will appear in your macOS menu bar at the top right.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Click the icon</strong> to open the prayer times popover. You'll see today's prayer times and a live countdown.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">Click <strong>Settings → Location</strong> to set your city. Search by name or tap "Use My Location".</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">Go to <strong>Settings → Athan</strong> to choose your reciter and enable notifications for each prayer.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-text">Switch to <strong>Arabic mode</strong> anytime from Settings → General → Language.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- faq -->
+  <section>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          The app doesn't appear in my Dock — is that normal?
+          <span class="arrow">▾</span>
+        </div>
+        <div class="faq-a">Yes, this is intentional. Salaati lives in your <strong>menu bar</strong> (top-right corner of your screen), not in the Dock. Look for the crescent moon icon next to your other menu bar icons.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          Prayer times seem wrong for my location
+          <span class="arrow">▾</span>
+        </div>
+        <div class="faq-a">First, check that your city is set correctly in <strong>Settings → Location</strong>. Then try changing the calculation method in <strong>Settings → Prayer → Fajr & Isha Method</strong> to match the authority followed in your country. You can also fine-tune individual prayer times in <strong>Settings → Adjust</strong>.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          The athan is not playing
+          <span class="arrow">▾</span>
+        </div>
+        <div class="faq-a">Check that: (1) <strong>Silent mode is off</strong> in Settings → Athan, (2) the bell icon next to that prayer is red (not grey) in the main popover, (3) your Mac volume is not muted, and (4) you have an active internet connection — athan audio streams from cdn.aladhan.com.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          I'm receiving too many notifications
+          <span class="arrow">▾</span>
+        </div>
+        <div class="faq-a">Each prayer fires one notification per day. If you're seeing duplicates, try going to <strong>Settings → Athan → Configure in System Settings</strong> and check your notification settings. You can also disable notifications per prayer using the bell icon in the main popover.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          How do I stop the athan while it's playing?
+          <span class="arrow">▾</span>
+        </div>
+        <div class="faq-a">Click the Salaati icon in the menu bar to open the popover. A red <strong>Stop Athan</strong> bar will appear at the bottom of the popover — tap it to stop playback immediately.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          How do I change the Hijri date?
+          <span class="arrow">▾</span>
+        </div>
+        <div class="faq-a">Go to <strong>Settings → Adjust → Hijri Date Adjustment</strong>. Use the stepper to offset the date by ±30 days to match your local moon sighting authority.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          Can I add a background image?
+          <span class="arrow">▾</span>
+        </div>
+        <div class="faq-a">Yes — go to <strong>Settings → General → Background Image</strong>, toggle it on, and click "Choose Image" to pick any photo from your Mac. You can adjust the opacity so it stays subtle.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          How do I make Salaati launch at startup?
+          <span class="arrow">▾</span>
+        </div>
+        <div class="faq-a">Go to <strong>Settings → General → Start at Login</strong> and toggle it on. Salaati will launch automatically every time you restart your Mac.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          Does Salaati work offline?
+          <span class="arrow">▾</span>
+        </div>
+        <div class="faq-a">Prayer times are fetched from the internet once per day and cached locally. The app will continue to show today's prayer times without internet. However, athan audio streams live and requires a connection — no internet means no sound.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">
+          Does the app collect any of my data?
+          <span class="arrow">▾</span>
+        </div>
+        <div class="faq-a">No. Salaati does not collect, store, or transmit any personal data. See our <a href="./privacy-policy.html">Privacy Policy</a> for full details.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- still need help -->
+  <section>
+    <h2>Still Need Help?</h2>
+    <p style="color:var(--muted);font-size:14px;">If your issue isn't covered above, reach out directly:</p>
+    <br>
+    <p style="font-size:14px;color:var(--muted)">
+      📧 Email: <a href="mailto:mehdigriche@gmail.com">mehdigriche@gmail.com</a><br>
+      🌐 Portfolio: <a href="https://any.ma/portfolio/mehdigriche/" target="_blank">Portfolio</a>
+    </p>
+    <br>
+    <p style="font-size:13px;color:var(--faint)">We aim to respond within 48 hours. Please include your macOS version and a description of the issue.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Mehdi Griche</p>
+  <div class="links">
+    <a href="./privacy-policy.html">Privacy Policy</a>
+    <a href="https://any.ma/portfolio/mehdigriche/" target="_blank">Portfolio</a>
+    <a href="mailto:mehdigriche@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+  function toggle(el) {
+    el.closest('.faq-item').classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
